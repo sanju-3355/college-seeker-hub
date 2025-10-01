@@ -1,73 +1,69 @@
-# Welcome to your Lovable project
+# College Dashboard with Filters and Enhanced Features
+You are required to **design and develop a Full-Stack College Dashboard application** that displays a list of colleges and allows users to **filter, search, add favorites, and manage reviews**. The application should include both **frontend (UI)** and **backend (API + persistence)** with a clean, responsive design and real-time interactions.
 
-## Project info
+> Demo Link : https://college-dashboard.lovable.app/
+## **Detailed Requirements**
 
-**URL**: https://lovable.dev/projects/9033e208-9deb-494f-a82e-e5e0ea512f90
+### **1. Navigation Bar**
 
-## How can I edit this code?
+- Display a **logo** on the top-left.
+- Display navigation items on the top-right:
+    - **Home**
+    - **Colleges**
+    - **Reviews**
+    - **Favorites**
+    - **Logout**
+- Each item should redirect to the respective page.
 
-There are several ways of editing your application.
+### **2. Pages**
 
-**Use Lovable**
+- **Home Page**
+    - Show a welcome message with short app description.
+    - Add a **“Get Started” button** that redirects to the Colleges page.
+- **Colleges Page (Main Dashboard)**
+    - Fetch list of colleges from backend API and display in **card/grid format**.
+    - Each college card should include:
+        - College Name
+        - Location
+        - Course Offered
+        - Fee
+        - ⭐ **Add to Favorites button**
+- **Reviews Page**
+    - Allow users to **add reviews** via form (college name, rating, comment).
+    - Reviews should be stored in backend (DB) and fetched/displayed dynamically.
+- **Favorites Page**
+    - Show only colleges marked as favorites by the user.
+    - Option to **remove from favorites** (update backend).
+- **Logout Page**
+    - Show placeholder text: *“You have been logged out”*
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9033e208-9deb-494f-a82e-e5e0ea512f90) and start prompting.
+### **3. Filters & Search**
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Location Filter:** Dropdown (e.g., Hyderabad, Bangalore, Chennai).
+- **Course Filter:** Dropdown (e.g., CSE, ECE, MBA).
+- **Fee Range Filter:** Slider or min–max input.
+- **Search Box:** Search dynamically by College Name.
+- **Sorting Options:** Sort by Fee (Low → High, High → Low).
+- **Filter Combination:** All filters should work **together**.
 
-**Use your preferred IDE**
+### **4. UI & Features**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- ✅ **Responsive Design:** Should look good on desktop and mobile.
+- ✅ **Dark Mode Toggle:** Switch between light/dark mode.
+- ✅ **Error Handling:** Friendly message if no colleges match filters/search.
+- ✅ **Persistence (Backend DB):** Store favorites and reviews in database (not just local storage).
+- ✅ **Bonus (Optional):** Deploy both frontend and backend.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+### **5. Backend Requirements**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9033e208-9deb-494f-a82e-e5e0ea512f90) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Build a **Node.js + Express.js backend**.
+- Expose REST API endpoints for:
+    - `GET /colleges` → Fetch all colleges (with optional query params for filters/search).
+    - `POST /reviews` → Add a new review.
+    - `GET /reviews` → Fetch all reviews.
+    - `POST /favorites` → Add a college to favorites.
+    - `GET /favorites` → Fetch user’s favorites.
+    - `DELETE /favorites/:id` → Remove from favorites.
+- Use a **database** (MongoDB/MySQL/Postgres/SQLite) to store colleges, reviews, and favorites.
+- Provide **sample seed data** in DB.
